@@ -1,4 +1,4 @@
-package SEIIProject.Services;
+package SEIIProject;
 
 /**
  * Hello world!
