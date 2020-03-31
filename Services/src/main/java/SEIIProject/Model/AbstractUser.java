@@ -56,7 +56,7 @@ public abstract class AbstractUser {
 
 	@Override
 	public String toString() {
-		String result = "Welcome " +' ' + firstName + ' ' + lastName + '!';
+		String result = "Welcome" +' ' + firstName + ' ' + lastName + '!';
 		return result;
 	}
 
