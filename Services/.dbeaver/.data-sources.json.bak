@@ -16,6 +16,23 @@
 				"auth-model": "native",
 				"handlers": {}
 			}
+		},
+		"mysql5-171315399b5-172f270c44365fcc": {
+			"provider": "mysql",
+			"driver": "mysql5",
+			"name": "MySQL - SWIIProject",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "SWIIProject",
+				"url": "jdbc:mysql://localhost:3306/SWIIProject",
+				"home": "C:\\xampp\\mysql",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
 		}
 	},
 	"connection-types": {

@@ -13,8 +13,7 @@
 				"url": "jdbc:mysql://localhost:3306/",
 				"home": "C:\\xampp\\mysql",
 				"type": "dev",
-				"auth-model": "native",
-				"handlers": {}
+				"auth-model": "native"
 			}
 		},
 		"mysql5-171315399b5-172f270c44365fcc": {
@@ -28,6 +27,22 @@
 				"port": "3306",
 				"database": "SWIIProject",
 				"url": "jdbc:mysql://localhost:3306/SWIIProject",
+				"home": "C:\\xampp\\mysql",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		},
+		"mysql5-17135b5ceef-521dbf72499b3fd3": {
+			"provider": "mysql",
+			"driver": "mysql5",
+			"name": "MySQL - SWII",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "SWII",
+				"url": "jdbc:mysql://localhost:3306/SWII",
 				"home": "C:\\xampp\\mysql",
 				"type": "dev",
 				"auth-model": "native",
