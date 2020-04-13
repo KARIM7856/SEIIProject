@@ -48,5 +48,17 @@ public class UserController {
 			Loader l = new UserLoader();
 			return l.loadALL();
 		}
+		
+		
+		@RequestMapping("/login")
+		public String login(HttpServletRequest rep) {
+			String userName = rep.getParameter("userName");
+			String email = rep.getParameter("email");
+			String pass = rep.getParameter("password");
+			
+			
+			
+			return "";
+		}
 
 }
