@@ -7,7 +7,7 @@ public class UserFactory {
 			return new Buyer();
 		case "storeowner":
 			return new StoreOwner();
-		case "administrator":
+		case "admin":
 			return new Administrator();
 			default:
 				System.err.println("No such type");

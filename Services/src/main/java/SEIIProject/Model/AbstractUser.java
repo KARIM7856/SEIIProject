@@ -1,15 +1,17 @@
 package SEIIProject.Model;
 
+import java.sql.SQLException;
+
 import SEIIProject.Repository.DataRepository;
 
 public abstract class AbstractUser {
 	
-	String firstName;
-	String lastName;
-	String userName;
-	String password;
-	String email;
-	String type;
+	private String firstName;
+	private String lastName;
+	private String userName;
+	private String password;
+	private String email;
+	private String type;
 	
 	public String getFirstName() {
 		return firstName;
@@ -91,7 +93,21 @@ public abstract class AbstractUser {
 		{
 			int row = dr.st.executeUpdate(query);
 		}catch(Exception e){
-			System.out.println("error2 : " + e);
+			System.out.println("error saving user to database : " + e);
 		}
+	}
+	
+	
+	public static boolean checkUserDetails(String usernameOrEmail, String password) {
+		DataRepository dr = new DataRepository();
+		String query = "SELECT userName from users where userName = " + "\'" + usernameOrEmail+ "\'"  + " OR email = " +  "\'" +usernameOrEmail + "\'" + " AND password = " +  "\'" +password+ "\'" ;
+		
+		try {
+			dr.rs = dr.st.executeQuery(query);
+			return dr.rs.next();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

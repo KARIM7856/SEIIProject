@@ -12,9 +12,8 @@ public class DataRepository {
 	public DataRepository()
 	{
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
 			
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SWII", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/swii", "root", "");
 			st = con.createStatement();
 			
 			

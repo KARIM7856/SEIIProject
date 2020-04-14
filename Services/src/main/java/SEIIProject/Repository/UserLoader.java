@@ -29,9 +29,8 @@ public class UserLoader implements Loader{
 				String pass = dr.rs.getString("password");
 				String email = dr.rs.getString("email");
 				String type = dr.rs.getString("type");
-				UserFactory nu = new UserFactory();
 				AbstractUser u = null;
-				u = nu.getUser(type);
+				u = UserFactory.getUser(type);
 				u.setFirstName(fName);
 				u.setLastName(lName);
 				u.setUserName(uName);
