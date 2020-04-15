@@ -63,9 +63,17 @@ public class UserController {
 		public String login(HttpServletRequest rep) {
 			String userName = rep.getParameter("userName");
 			String password = rep.getParameter("password");
+			String email = rep.getParameter("email");
+			String userID = "";
+			if(password == null) {
+				userID = email;
+			}
+			else {
+				userID = password;
+			}
 			
 			AuthenticationProvider authP = new SWIIAuthenticationProvider();
-			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userName, password);
+			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userID, password);
 			
 			Authentication auth = authP.authenticate(token);
 			SecurityContext securityContext = SecurityContextHolder.getContext();

@@ -16,7 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.formLogin().loginPage("/login").usernameParameter("userName").passwordParameter("password").permitAll();
+		//httpSecurity.formLogin().loginPage("/login").usernameParameter("userName").passwordParameter("password").permitAll();
 		httpSecurity.authorizeRequests().antMatchers("/printAll").hasAuthority("ROLE_administrator").and();
 		 
 	}
