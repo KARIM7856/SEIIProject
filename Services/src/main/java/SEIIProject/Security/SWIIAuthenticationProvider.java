@@ -24,7 +24,8 @@ public class SWIIAuthenticationProvider implements AuthenticationProvider {
 		Authentication result = null;
 		if(AbstractUser.checkUserDetails(usernameOrEmail, password)) {
 			List<String> roleList = new ArrayList<String>();
-			roleList.add("ADMIN");
+			String type = AbstractUser.getType(usernameOrEmail);
+			roleList.add(type);
 			result = new UsernamePasswordAuthenticationToken(usernameOrEmail, password, getGrantedAuthorities(roleList));
 		}
 		return result;

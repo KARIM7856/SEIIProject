@@ -100,7 +100,8 @@ public abstract class AbstractUser {
 	
 	public static boolean checkUserDetails(String usernameOrEmail, String password) {
 		DataRepository dr = new DataRepository();
-		String query = "SELECT userName from users where userName = " + "\'" + usernameOrEmail+ "\'"  + " OR email = " +  "\'" +usernameOrEmail + "\'" + " AND password = " +  "\'" +password+ "\'" ;
+		String query = "SELECT userName from users where userName = " + "\'" + usernameOrEmail+ "\'" 
+		+ " OR email = " +  "\'" +usernameOrEmail + "\'" + " AND password = " +  "\'" +password+ "\'" ;
 		
 		try {
 			dr.rs = dr.st.executeQuery(query);
@@ -109,5 +110,22 @@ public abstract class AbstractUser {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	public static String getType(String usernameOrEmail) {
+		DataRepository dr = new DataRepository();
+		String query = "SELECT type from users where userName = " + "\'" + usernameOrEmail+ "\'" 
+		+ " OR email = " +  "\'" +usernameOrEmail + "\'";
+		
+		try {
+			dr.rs = dr.st.executeQuery(query);
+			while(dr.rs.next()) {
+				String type = dr.rs.getString("type");
+				return type;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
