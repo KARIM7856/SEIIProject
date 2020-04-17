@@ -15,6 +15,9 @@ public class DataRepository {
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/SWII", "root", "");
+=======
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/swii?serverTimezone=UTC", "root", "");
+>>>>>>> Stashed changes
 			st = con.createStatement();
 			
 			
