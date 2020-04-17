@@ -8,7 +8,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -59,7 +61,7 @@ public class UserController {
 		}
 		
 		
-		@RequestMapping("/login")
+		@RequestMapping(path = "/login", method = RequestMethod.POST)
 		public String login(HttpServletRequest rep) {
 			String userName = rep.getParameter("userName");
 			String password = rep.getParameter("password");
@@ -69,7 +71,7 @@ public class UserController {
 				userID = email;
 			}
 			else {
-				userID = password;
+				userID = userName;
 			}
 			
 			AuthenticationProvider authP = new SWIIAuthenticationProvider();
