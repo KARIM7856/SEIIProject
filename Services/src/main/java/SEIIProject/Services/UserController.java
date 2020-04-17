@@ -25,10 +25,9 @@ import SEIIProject.Repository.UserLoader;
 import SEIIProject.Security.*;
 
 @RestController
-public class UserController {
+public class UserController implements UserControllerIterface {
 	
-	@RequestMapping("/signup")
-	String signUp(HttpServletRequest rep) {
+	public String signUp(HttpServletRequest rep) {
 		
 		AbstractUser user;
 		
@@ -54,15 +53,13 @@ public class UserController {
 		
 		
 	}
-		@RequestMapping("/printAll")
 		public ArrayList<AbstractUser> printAll() {
 			Loader l = new UserLoader();
 			return l.loadALL();
 		}
 		
 		
-		@RequestMapping(path = "/login", method = RequestMethod.POST)
-		public String login(HttpServletRequest rep) {
+		public Responder login(HttpServletRequest rep, Authentication auth) {
 			String userName = rep.getParameter("userName");
 			String password = rep.getParameter("password");
 			String email = rep.getParameter("email");
@@ -74,28 +71,13 @@ public class UserController {
 				userID = userName;
 			}
 			
-			AuthenticationProvider authP = new SWIIAuthenticationProvider();
-			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userID, password);
-			
-			Authentication auth = authP.authenticate(token);
 			SecurityContext securityContext = SecurityContextHolder.getContext();
 		    securityContext.setAuthentication(auth);
 		    HttpSession session = rep.getSession(true);
 		    session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
 
 			
-
-			return userName;
+			return new Responder("success");
 		}
-		
-		@RequestMapping("/success")
-		public String  current (Principal principal){
-			return principal.getName();
-		}
-		@RequestMapping("/error/login")
-		public String  errlogin (Principal principal){
-			return "error during login!";
-		}
-		
 
 }
