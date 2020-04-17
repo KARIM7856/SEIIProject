@@ -13,7 +13,9 @@ public class DataRepository {
 	{
 		try {
 			
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/swii", "root", "");
+
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/swii?serverTimezone=UTC", "root", "");
+
 			st = con.createStatement();
 			
 			
