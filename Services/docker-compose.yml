@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin-server
+        volumes: 
+            - ./db_server:/var/lib/phpmyadmin
+        environment: 
+            - PMA_ARBITRARY=1
+        restart: always
+        ports: 
+            - 8889:80

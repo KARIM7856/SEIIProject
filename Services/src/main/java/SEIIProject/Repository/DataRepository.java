@@ -2,6 +2,8 @@ package SEIIProject.Repository;
 
 import java.sql.*;
 
+
+
 public class DataRepository {
 	
 	public Connection con;
@@ -14,7 +16,7 @@ public class DataRepository {
 		try {
 			
 
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/swii?serverTimezone=UTC", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:8886/swii", "users", "users");
 
 			st = con.createStatement();
 			
