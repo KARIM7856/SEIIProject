@@ -17,7 +17,7 @@ public class UserLoader implements Loader{
 		try 
 		{
 			
-			query = "SELECT * FROM Users";
+			query = "SELECT * FROM users";
 			dr.rs = dr.st.executeQuery(query);
 			//System.out.println("records from the database : ");
 			
